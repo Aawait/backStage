@@ -69,7 +69,7 @@ module.exports = {
                         id: 1,
                         name: "用户列表",
                         path: "/home/users",
-                        icon: "el-icon-setting"
+                        icon: "el-icon-user-solid"
                       },
                     ],
                   },
@@ -82,7 +82,7 @@ module.exports = {
                         id: 2,
                         name: "员工列表",
                         path: "/home/rote",
-                        icon: "el-icon-setting"
+                        icon: "el-icon-s-check"
                       },
                     ],
                   },
@@ -95,19 +95,19 @@ module.exports = {
                         id: 4,
                         name: "商品列表",
                         path: "/home/product",
-                        icon: "el-icon-setting"
+                        icon: "el-icon-notebook-2"
                       },
                       {
                         id: 5,
                         name: "分类参数",
                         path: "/home/params",
-                        icon: "el-icon-setting"
+                        icon: "el-icon-s-grid"
                       },
                       {
                         id: 6,
                         name: "商品分类",
                         path: "/home/classify",
-                        icon: "el-icon-setting"
+                        icon: "el-icon-menu"
                       },
                     ],
                   },
@@ -131,12 +131,63 @@ module.exports = {
         // 返回用户界面需要的数据
         app.get('/api/user',(req,res)=>{
 
-            const list = [{
+            const list = [    {
+                                  "id": 7,
+                                  "UserName": "谢大脚",
+                                  "Password": "123456",
+                                  "CreateTime": "2021-6-9 星期三 22:42:00",
+                                  "RoleName": "S特工",
+                                  "Mobile": "1586546458",
+                                  "Email": "85578@163.com",
+                                  "MgState": "yes"
+                              },
+              
+                              {
+                                  "id": 6,
+                                  "UserName": "欧阳长贵",
+                                  "Password": "123456",
+                                  "CreateTime": "2021-6-9 星期三 22:42:00",
+                                  "RoleName": "资本主义",
+                                  "Mobile": "1566561664",
+                                  "Email": "changui8@163.com",
+                                  "MgState": "yes"
+                              },
+                               {
+                                    "id": 5,
+                                    "UserName": "刘能",
+                                    "Password": "123456",
+                                    "CreateTime": "2021-6-9 星期三 22:42:00",
+                                    "RoleName": "资本主义",
+                                    "Mobile": "18666666666",
+                                    "Email": "28387378@126.com",
+                                    "MgState": "yes"
+                                },
+                             {
+                                  "id": 4,
+                                  "UserName": "赵玉田",
+                                  "Password": "123456",
+                                  "CreateTime": "2021-6-9 星期三 22:42:00",
+                                  "RoleName": "A级特工",
+                                  "Mobile": "18586254616",
+                                  "Email": "8673738@163.com",
+                                  "MgState": "yes"
+                              },
+                             {
+                                    "id": 3,
+                                    "UserName": "谢永强",
+                                    "Password": "123456",
+                                    "CreateTime": "2021-6-9 星期三 22:42:00",
+                                    "RoleName": "S级特工",
+                                    "Mobile": "18666666666",
+                                    "Email": "278578@163.com",
+                                    "MgState": "yes"
+                                },
+                             {
                                 "id": 10,
                                 "UserName": "vivi5",
                                 "Password": "123456",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
+                                "RoleName": "打工仔",
                                 "Mobile": "18888888888",
                                 "Email": "405328555@qq.com",
                                 "MgState": "yes"
@@ -145,7 +196,7 @@ module.exports = {
                                 "UserName": "vivi4",
                                 "Password": "123456",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
+                                "RoleName": "打工仔",
                                 "Mobile": "18888888888",
                                 "Email": "405328555@qq.com",
                                 "MgState": "yes"
@@ -154,61 +205,61 @@ module.exports = {
                                 "UserName": "vivi3",
                                 "Password": "123456",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
+                                "RoleName": "打工仔",
                                 "Mobile": "18888888888",
                                 "Email": "405328555@qq.com",
                                 "MgState": "yes"
                             }, {
-                                "id": 7,
+                                "id": 11,
                                 "UserName": "vivi2",
                                 "Password": "555555",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
+                                "RoleName": "打工仔",
                                 "Mobile": "13312311231",
                                 "Email": "55@qq.com",
                                 "MgState": "yes"
                             }, {
-                                "id": 6,
+                                "id": 2,
                                 "UserName": "vivi",
                                 "Password": "333333",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
+                                "RoleName": "打工仔",
                                 "Mobile": "13388888888",
                                 "Email": "33@qq.com",
                                 "MgState": "yes"
                             }, {
-                                "id": 5,
+                                "id": 12,
                                 "UserName": "cici5",
                                 "Password": "222222",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
+                                "RoleName": "打工仔",
                                 "Mobile": "13845644564",
                                 "Email": "22@qq.com",
                                 "MgState": "yes"
                             }, {
-                                "id": 4,
+                                "id": 13,
                                 "UserName": "cici4",
                                 "Password": "123456",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
-                                "Mobile": "",
-                                "Email": "",
+                                "RoleName": "打工仔",
+                                "Mobile": "13602221234",
+                                "Email": "223456@qq.com",
                                 "MgState": "yes"
                             }, {
-                                "id": 3,
+                                "id": 14,
                                 "UserName": "cici3",
                                 "Password": "",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
+                                "RoleName": "打工仔",
                                 "Mobile": "13812341235",
                                 "Email": "888888@qq.com",
                                 "MgState": "yes"
                             }, {
-                                "id": 2,
+                                "id": 15,
                                 "UserName": "cici2",
                                 "Password": "",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "",
+                                "RoleName": "打工仔",
                                 "Mobile": "13812341888",
                                 "Email": "288888@qq.com",
                                 "MgState": "yes"
@@ -218,18 +269,16 @@ module.exports = {
                                 "Password": "123456",
                                 "CreateTime": "2021-6-9 星期三 22:42:00",
                                 "RoleName": "超级管理员",
-                                "Mobile": "13602221234",
-                                "Email": "223456@qq.com",
+                                "Mobile": "15088053345",
+                                "Email": "c158595@126.com",
                                 "MgState": "no"
                             }]
-
-            const {pageNum , pageSize} = req.query
-            const total = userlist.length
-            const userlist = list.slice(pageNum,pageSize)
+            
             res.json({
               status: 200,
-              data: userlist,
-              message: "获取数据成功"
+              data: list,
+              message: "获取数据成功",
+              total: list.length
               
             })
         })

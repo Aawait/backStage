@@ -80,10 +80,9 @@ export default {
 
                 this.$axios.get('/api/login',{params : this.formData})
                    .then(res => {
-                       console.log(res);
                        // 登录成功
                        if(res.data.code === 1){
-                            console.log("进入了登录成功");
+                           
                            window.sessionStorage.setItem('token',res.data.token)
                            this.$message.success(res.data.message)
                            this.$router.push('/home')

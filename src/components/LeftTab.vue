@@ -16,13 +16,12 @@
               :index="String(item.id)" 
               v-for="item in tabList" 
               :key="item.id" 
-              :class="{active: isActive === item.id}"  
-              @click="changeIndex(item.id)">
-
-                   <template slot="title">
+              >
+              <!-- 组件点击事件无效可以通过@click.native 来实现点击事件 -->
+                   <div slot="title"  :class="{active: isActive === item.id}" @click="changeIndex(item.id)" >
                        <i :class="item.icon"></i>
                        <span>{{ item.name }}</span>
-                   </template>
+                   </div>
                    <el-menu-item :index="sonItem.path" v-for="sonItem in item.child" :key="sonItem.id">
                        <i :class="sonItem.icon"></i>
                       <span> {{ sonItem.name }} </span>
@@ -54,8 +53,8 @@ export default {
         }
     },
     methods: {
+        // 高亮索引
         changeIndex(i){
-            console.log(i);
             this.isActive = i
         }
     },
@@ -97,6 +96,8 @@ export default {
     .active i,.active span{
         color: #ffd04b;
     }
+    
+    
 
   }
 
