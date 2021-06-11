@@ -1,9 +1,9 @@
 <template>
 
     <el-row :gutter="24" class="el-row-table">
-                <el-col :span="20">
+                <el-col :span="22">
                     <el-table :stripe="true" :data="$store.state.userlist">
-                         <el-table-column label="id" width="80px" prop="id"></el-table-column>
+                         <el-table-column label="序号" width="80px" type="index"></el-table-column>
                          <el-table-column label="用户名" width="100px" prop="UserName"></el-table-column>
                          <el-table-column label="手机" width="180px" prop="Mobile"></el-table-column>
                          <el-table-column label="邮箱" width="180px" prop="Email"></el-table-column>
@@ -18,8 +18,10 @@
                               </template>
                          </el-table-column>
                          <el-table-column label="操作" width="150px">
-                               <el-button type="success" size="mini">修改</el-button>
-                               <el-button type="danger" size="mini">删除</el-button>
+                             <template slot-scope="current">
+                               <el-button type="success" size="mini" @click="upData(current.row)">修改</el-button>
+                               <el-button type="danger" size="mini" @click="removeData(current.row.id)">删除</el-button>
+                               </template>
                          </el-table-column>
                          <el-table-column label="创建时间" width="200px" prop="CreateTime"></el-table-column>
                     </el-table>
@@ -51,6 +53,7 @@ export default {
                pageNum: 1,
                pageSize: 3,
                isSwitch: false,
+               currentUser: null
          }
      } ,
      created(){
@@ -67,12 +70,12 @@ export default {
             this.$axios.get('/api/user')
             .then(res => {
               
-                const axiosList = res.data.data.sort((a,b) => {
-                    return a.id - b.id
-                })
-                this.$store.commit('axiosListChange',axiosList)
+                // const axiosList = res.data.data.sort((a,b) => {
+                //     return a.id - b.id
+                // })
+                this.$store.commit('axiosListChange',res.data.data)
 
-                const userlist = axiosList.slice(0,this.pageSize)
+                const userlist = res.data.data.slice(0,this.pageSize)
                 this.$store.commit('userlistChange',userlist)
                 
             })
@@ -80,7 +83,7 @@ export default {
 
           // 修改switch的状态
         changeSwitch(isSwitch){
-
+             
             this.$message.success(isSwitch.UserName + " 的状态修改为" + " " + isSwitch.MgState)
         },
 
@@ -112,8 +115,44 @@ export default {
            this.eventBus.$emit('pageinfo',{pageNum:this.pageNum, pageSize:this.pageSize})
 
         },
+        // 修改用户数据按钮
+        upData(current){
+           
+            this.$store.commit('openDialogChange',true)
+            this.$store.commit('dialogStateChange',1)
+            
+            this.eventBus.$emit('userinfo',current)
+        },
+
+        // 删除用户数据
+       removeData(userid){
+           
+            this.$confirm("此操作将永久删除用户，是否继续？","提示",{
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "warning"
+            })
+            .then(async res => {
+              let result  = await this.$axios.get('/api/user/remove',{params:{userid}})
+                if(result.data.status == 200){
+                    this.$store.commit('axiosListChange',result.data.data)
+
+                    const userlist = result.data.data.slice(0,this.pageSize)
+                    this.$store.commit('userlistChange',userlist)
+                }
+
+                this.$message.success("删除用户成功")
+            })
+            .catch(err => {
+                this.$message.info("算了算了")
+            })
+
+          
 
 
+
+           
+        }
      }
 }
 </script>

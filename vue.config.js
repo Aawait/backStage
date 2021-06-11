@@ -11,7 +11,7 @@ module.exports = {
       },
     },
     devServer: {
-      open: true,
+      open: true,  // 热更新 保存代码页面自动更新
       host: "127.0.0.1",
       port: 8080,
       disableHostCheck: true, // 忽略host检查，不会出现hot-reload失效
@@ -20,6 +20,149 @@ module.exports = {
       before(app) {
         // 模拟一个登录的接口
         const token = "aaabbbccc";
+        const list = [    {
+                              "id": 7,
+                              "UserName": "谢大脚",
+                              "Password": "123456",
+                              "CreateTime": "2021-6-9 星期三 22:42:00",
+                              "RoleName": "S特工",
+                              "Mobile": "1586546458",
+                              "Email": "85578@163.com",
+                              "MgState": true
+                          },
+          
+                          {
+                              "id": 6,
+                              "UserName": "欧阳长贵",
+                              "Password": "123456",
+                              "CreateTime": "2021-6-9 星期三 22:42:00",
+                              "RoleName": "资本主义",
+                              "Mobile": "1566561664",
+                              "Email": "changui8@163.com",
+                              "MgState": true
+                          },
+                           {
+                                "id": 5,
+                                "UserName": "刘能",
+                                "Password": "123456",
+                                "CreateTime": "2021-6-9 星期三 22:42:00",
+                                "RoleName": "资本主义",
+                                "Mobile": "18666666666",
+                                "Email": "28387378@126.com",
+                                "MgState": true
+                            },
+                         {
+                              "id": 4,
+                              "UserName": "赵玉田",
+                              "Password": "123456",
+                              "CreateTime": "2021-6-9 星期三 22:42:00",
+                              "RoleName": "A级特工",
+                              "Mobile": "18586254616",
+                              "Email": "8673738@163.com",
+                              "MgState": true
+                          },
+                         {
+                                "id": 3,
+                                "UserName": "谢永强",
+                                "Password": "123456",
+                                "CreateTime": "2021-6-9 星期三 22:42:00",
+                                "RoleName": "S级特工",
+                                "Mobile": "18666666666",
+                                "Email": "278578@163.com",
+                                "MgState": true
+                            },
+                         {
+                            "id": 10,
+                            "UserName": "vivi5",
+                            "Password": "123456",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "18888888888",
+                            "Email": "405328555@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 9,
+                            "UserName": "vivi4",
+                            "Password": "123456",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "18888888888",
+                            "Email": "405328555@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 8,
+                            "UserName": "vivi3",
+                            "Password": "123456",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "18888888888",
+                            "Email": "405328555@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 11,
+                            "UserName": "vivi2",
+                            "Password": "555555",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "13312311231",
+                            "Email": "55@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 2,
+                            "UserName": "vivi",
+                            "Password": "333333",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "13388888888",
+                            "Email": "33@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 12,
+                            "UserName": "cici5",
+                            "Password": "222222",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "13845644564",
+                            "Email": "22@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 13,
+                            "UserName": "cici4",
+                            "Password": "123456",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "13602221234",
+                            "Email": "223456@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 14,
+                            "UserName": "cici3",
+                            "Password": "",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "13812341235",
+                            "Email": "888888@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 15,
+                            "UserName": "cici2",
+                            "Password": "",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "打工仔",
+                            "Mobile": "13812341888",
+                            "Email": "288888@qq.com",
+                            "MgState": true
+                        }, {
+                            "id": 1,
+                            "UserName": "cici",
+                            "Password": "123456",
+                            "CreateTime": "2021-6-9 星期三 22:42:00",
+                            "RoleName": "超级管理员",
+                            "Mobile": "15088053345",
+                            "Email": "c158595@126.com",
+                            "MgState": true
+                        }]
+
         app.get("/api/login", (req, res) => {
          
           const { username, password } = req.query;
@@ -40,8 +183,6 @@ module.exports = {
           }
         });
 
-
-        
         // 返回home首页tab栏需要的数据
         app.get('/api/menu',(req,res)=>{
             res.json({
@@ -130,149 +271,6 @@ module.exports = {
          
         // 返回用户界面需要的数据
         app.get('/api/user',(req,res)=>{
-
-            const list = [    {
-                                  "id": 7,
-                                  "UserName": "谢大脚",
-                                  "Password": "123456",
-                                  "CreateTime": "2021-6-9 星期三 22:42:00",
-                                  "RoleName": "S特工",
-                                  "Mobile": "1586546458",
-                                  "Email": "85578@163.com",
-                                  "MgState": "yes"
-                              },
-              
-                              {
-                                  "id": 6,
-                                  "UserName": "欧阳长贵",
-                                  "Password": "123456",
-                                  "CreateTime": "2021-6-9 星期三 22:42:00",
-                                  "RoleName": "资本主义",
-                                  "Mobile": "1566561664",
-                                  "Email": "changui8@163.com",
-                                  "MgState": "yes"
-                              },
-                               {
-                                    "id": 5,
-                                    "UserName": "刘能",
-                                    "Password": "123456",
-                                    "CreateTime": "2021-6-9 星期三 22:42:00",
-                                    "RoleName": "资本主义",
-                                    "Mobile": "18666666666",
-                                    "Email": "28387378@126.com",
-                                    "MgState": "yes"
-                                },
-                             {
-                                  "id": 4,
-                                  "UserName": "赵玉田",
-                                  "Password": "123456",
-                                  "CreateTime": "2021-6-9 星期三 22:42:00",
-                                  "RoleName": "A级特工",
-                                  "Mobile": "18586254616",
-                                  "Email": "8673738@163.com",
-                                  "MgState": "yes"
-                              },
-                             {
-                                    "id": 3,
-                                    "UserName": "谢永强",
-                                    "Password": "123456",
-                                    "CreateTime": "2021-6-9 星期三 22:42:00",
-                                    "RoleName": "S级特工",
-                                    "Mobile": "18666666666",
-                                    "Email": "278578@163.com",
-                                    "MgState": "yes"
-                                },
-                             {
-                                "id": 10,
-                                "UserName": "vivi5",
-                                "Password": "123456",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "18888888888",
-                                "Email": "405328555@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 9,
-                                "UserName": "vivi4",
-                                "Password": "123456",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "18888888888",
-                                "Email": "405328555@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 8,
-                                "UserName": "vivi3",
-                                "Password": "123456",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "18888888888",
-                                "Email": "405328555@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 11,
-                                "UserName": "vivi2",
-                                "Password": "555555",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "13312311231",
-                                "Email": "55@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 2,
-                                "UserName": "vivi",
-                                "Password": "333333",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "13388888888",
-                                "Email": "33@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 12,
-                                "UserName": "cici5",
-                                "Password": "222222",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "13845644564",
-                                "Email": "22@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 13,
-                                "UserName": "cici4",
-                                "Password": "123456",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "13602221234",
-                                "Email": "223456@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 14,
-                                "UserName": "cici3",
-                                "Password": "",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "13812341235",
-                                "Email": "888888@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 15,
-                                "UserName": "cici2",
-                                "Password": "",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "打工仔",
-                                "Mobile": "13812341888",
-                                "Email": "288888@qq.com",
-                                "MgState": "yes"
-                            }, {
-                                "id": 1,
-                                "UserName": "cici",
-                                "Password": "123456",
-                                "CreateTime": "2021-6-9 星期三 22:42:00",
-                                "RoleName": "超级管理员",
-                                "Mobile": "15088053345",
-                                "Email": "c158595@126.com",
-                                "MgState": "no"
-                            }]
             
             res.json({
               status: 200,
@@ -281,6 +279,61 @@ module.exports = {
               total: list.length
               
             })
+        })
+
+
+        // 用户列表添加用户接口
+        app.get('/api/user/add',(req,res)=>{
+            
+          list.unshift(req.query)
+
+          res.json({
+            status: 200,
+            data: list,
+            message: "数据添加成功",
+            total: list.length
+          })
+
+        })
+
+
+        // 修改用户数据接口
+        app.get('/api/user/update',(req,res)=>{
+             
+            list.forEach((item,i) => {
+              if(item.id === Number(req.query.id)){
+                 req.query.id = Number(req.query.id)
+                 list.splice(i,1,req.query)
+              }
+            })
+        
+            res.json({
+              status: 200,
+              message: "修改数据成功",
+              data: list,
+              total: list.length,
+              query: req.query
+            })
+        })
+
+        // 删除用户数据接口
+        app.get('/api/user/remove',(req,res)=>{
+           
+          console.log("进入请求了");
+          console.log(req.query);
+           list.forEach((item,index) => {
+              if(item.id === Number(req.query.userid)){
+                 console.log("进入判断了");
+                 list.splice(index,1)
+
+                 res.json({
+                   status: 200,
+                   message: "删除用户成功",
+                   data: list,
+                   total: list.length
+                 })
+              }
+           })
         })
       },
     },
